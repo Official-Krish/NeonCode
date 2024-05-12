@@ -3,6 +3,8 @@ import { Signin } from './components/Signin';
 
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { RecoilRoot, useRecoilState } from 'recoil';
+import { userAtom } from './store/atoms/user';
 
  export const firebaseConfig = {
   apiKey: "AIzaSyDYBxZM2Wa_TccZRPjLXPjUWXfuk59voTc",
@@ -17,25 +19,48 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-
-
-
 function App() {
+  return (
+    <RecoilRoot>
+      <StoreApp />
+    </RecoilRoot>
+  );
+}
+
+function StoreApp() {
+  const [user, setUser] = useRecoilState(userAtom);
+
+
   useEffect(() => {
     onAuthStateChanged(auth, function (user) {
-      if (user) {
-        console.log("this is the user ", user)
+      if (user && user.email) {
+        setUser({
+          Loading: false,
+          user: {
+            email: user.email,
+          },
+        });
       } else {
+        setUser({
+          Loading: false,
+        });
+        // No user is signed in.
         console.log("There is no logged in user");
       }
     });
   }, [])
 
-  return (
-    <>
-      <Signin/>
-    </>
-  )
+  if (user.Loading) {
+    return <div>loading ...</div>;
+  }
+  
+  if (!user.user) {
+    return <div><Signin /></div>
+  }
+  
+  return <div className='flex justify-center'>
+    You are logged in as {user.user.email}
+  </div>
 }
 
-export default App
+export default App;
