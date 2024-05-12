@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import { LandingPage } from './components/LandingPage'
+import { useEffect, useState } from 'react'
+import { Signin } from './components/Signin';
 
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { Signin } from './components/Signin';
-const firebaseConfig = {
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+
+ export const firebaseConfig = {
   apiKey: "AIzaSyDYBxZM2Wa_TccZRPjLXPjUWXfuk59voTc",
   authDomain: "leetcode-clone-82f24.firebaseapp.com",
   projectId: "leetcode-clone-82f24",
@@ -15,14 +15,21 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
+export const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
 
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  useEffect(() => {
+    onAuthStateChanged(auth, function (user) {
+      if (user) {
+        console.log("this is the user ", user)
+      } else {
+        console.log("There is no logged in user");
+      }
+    });
+  }, [])
 
   return (
     <>

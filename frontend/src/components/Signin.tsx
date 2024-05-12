@@ -1,39 +1,35 @@
-import { getAuth, sendSignInLinkToEmail } from "firebase/auth";
-import { useState } from "react";
+import { signInWithPopup } from "firebase/auth";
+import { auth } from "../App";
+import { GoogleAuthProvider } from "firebase/auth";
 
-const actionCodeSettings = {
-    url: 'https://localhost:3000',
-    handleCodeInApp: true,
+const provider = new GoogleAuthProvider();
 
-  };
 export const Signin = () => {
-    const [email, setEmail] = useState<string>('');
-    const auth = getAuth();
+
+    async function onSignin() {
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                if (!credential) {
+                    return;
+                }
+                // The signed-in user info.
+                const user = result.user;
+                console.log(user);
+                // IdP data available using getAdditionalUserInfo(result)
+                // ...
+            }).catch(() => {
+                alert("erorr while signing in");
+            });
 
 
-    async function OnSignin(){
-        
-        await sendSignInLinkToEmail(auth, email, actionCodeSettings)
-        .then(() => {
-            window.localStorage.setItem('emailForSignIn', email);
-            alert ("email sent")
-        })
-        .catch((error) => {
-            alert ("email not sent")
-            const errorCode = error.code;
-            const errorMessage = error.message;
-        });
     }
 
-
-    return <div className="flex justify-center">
-        <input type="text" placeholder="email" onChange={(e)=>{
-            setEmail(e.target.value)
-
-        }}>        
-        </input>
-        <button onClick={OnSignin}>
-            Signup
+    return <div className="flex justify-center">       
+        <button onClick={onSignin}>
+            Login with Google
         </button>
+        
     </div>
 }
