@@ -4,6 +4,7 @@ import { RecoilRoot, useRecoilState } from 'recoil';
 import { useEffect } from "react";
 import { userAtom } from "../store/atoms/user.ts";
 import { Signin } from "../components/Signin.tsx";
+import { LoggedLandingPage } from "../components/LoggedLandingpage.tsx";
 
 export const firebaseConfig = {
     apiKey: "AIzaSyDYBxZM2Wa_TccZRPjLXPjUWXfuk59voTc",
@@ -25,7 +26,7 @@ export const SIgninpage = () => {
     </RecoilRoot>
     );
 }
-function StoreApp() {
+export function StoreApp() {
   const [user, setUser] = useRecoilState(userAtom);
 
 
@@ -56,7 +57,11 @@ function StoreApp() {
     return <div><Signin /></div>
   }
   
-  return <div className='flex justify-center'>
-    You are logged in as {user.user.email}
+  return <div>
+    <div>
+    <LoggedLandingPage/>
+    </div>
+    
   </div>
+ 
 }
