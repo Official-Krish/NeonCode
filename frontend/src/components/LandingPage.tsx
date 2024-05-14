@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { Topbar } from "./Topbar"
+import { Footer } from "./Footer"
 export const LandingPage = () =>{
     return <div className="bg-gray-800 h-screen">
         <Topbar/>
@@ -16,7 +17,7 @@ export const LandingPage = () =>{
                 </div>
             </div>
             <div className="flex justify-center pt-12 pb-20">
-                <Link to="/signin">
+                <Link to="/user">
                 <button type="button" className="text-white bg-cyan-700 hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-700 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-cyan-700 dark:hover:bg-cyan-800 dark:focus:ring-cyan-700">Create Account</button>
                 </Link>
             
@@ -71,8 +72,7 @@ export const LandingPage = () =>{
         </div>
       </div>
     </div>
-
-        </div>
-        
+    <Footer/>    
+      </div>
     </div>
 }

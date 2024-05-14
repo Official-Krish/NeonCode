@@ -1,3 +1,4 @@
+import { Footer } from "./Footer"
 import { LoggedTopbar } from "./LoggedTopbar"
 
 export const LoggedLandingPage = () =>{
@@ -67,6 +68,7 @@ export const LoggedLandingPage = () =>{
         </div>
       </div>
     </div>
+    <Footer/>
 
         </div>
         
