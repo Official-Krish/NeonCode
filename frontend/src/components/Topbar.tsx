@@ -1,16 +1,21 @@
 import { Link } from "react-router-dom"
-import { DevClick } from "./LoggedTopbar"
+
 
 export const Topbar = () => {
     return<div>
-        <div className="flex justify-around pt-6 text-white lc	">
+        <div className="flex justify-around pt-6 text-white">
             <div className="cursor-pointer">
                 NeonCode
             </div>
             <div className="flex justify-between ">
-                <button className="mr-14">
+            <button onClick={() =>{
+                    window.open("http://localhost:5173/premium", '_blank', 'noopener,noreferrer');
+
+                }} className="mr-14">
                     Premium
                 </button>
+
+
                 <button className="mr-14">
                     Explore
                 </button>
@@ -23,7 +28,10 @@ export const Topbar = () => {
                 </Link>
                 
                 
-                <button onClick={DevClick}className="mr-14">
+                <button onClick={() =>{
+                        window.open("https://github.com/Official-Krish", '_blank', 'noopener,noreferrer');
+
+                }} className="mr-14">
                     Developer
                 </button>
                 <button>

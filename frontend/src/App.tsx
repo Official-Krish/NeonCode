@@ -6,6 +6,7 @@ import { Leaderboard } from "./pages/Leaderboard";
 import { ProblemList } from "./components/ProblemList";
 import { Submissions } from "./components/Submissions";
 import { RecoilRoot } from "recoil";
+import { Premium } from "./components/Premium";
 
 
 
@@ -34,11 +35,12 @@ function Handler() {
   return (
     <Router>
       <Routes>
-        <Route path="/landingpage" element={<LandingPage/> } />
+        <Route path="/" element={<LandingPage/> } />
         <Route path="/user" element={<SIgninpage/> } />
         <Route path="/leaderboard" element={<Leaderboard leaderboard={leaderboard}/> } />
         <Route path="/problemlist" element={<ProblemList problemList={problemList}/> } />
         <Route path="/submissions" element={<Submissions/> } />
+        <Route path="/premium" element={<Premium/> } />
       </Routes>
     </Router>
   )
