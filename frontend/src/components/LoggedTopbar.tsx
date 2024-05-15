@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom";
 import { userAtom } from "../store/atoms/user"
 import { useRecoilValue } from "recoil"
 
@@ -13,9 +14,12 @@ export const LoggedTopbar = () => {
                 <button className="mr-14">
                     Premium
                 </button>
-                <button className="mr-14">
-                    Product
+                <Link to = "/leaderboard">
+                <button className="mr-14 pt-2">
+                    Leaderboard
                 </button>
+                </Link>
+                
                 <button className="mr-14">
                     About
                 </button>

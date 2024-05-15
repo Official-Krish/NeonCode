@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { userAtom } from "../store/atoms/user.ts";
 import { Signin } from "../components/Signin.tsx";
 import { LoggedLandingPage } from "../components/LoggedLandingpage.tsx";
+import { Skeleton } from "../components/Skeleton.tsx";
 
 export const firebaseConfig = {
     apiKey: "AIzaSyDYBxZM2Wa_TccZRPjLXPjUWXfuk59voTc",
@@ -50,7 +51,7 @@ export function StoreApp() {
   }, [])
 
   if (user.Loading) {
-    return <div>loading ...</div>;
+    return <div><Skeleton/></div>;
   }
   
   if (!user.user) {
