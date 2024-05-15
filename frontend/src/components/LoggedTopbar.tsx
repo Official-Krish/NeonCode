@@ -7,7 +7,7 @@ export const LoggedTopbar = () => {
     return<div>
         <div className="flex justify-around pt-6 text-white ">
             <div className="cursor-pointer">
-                Leet Code
+                NeonCode
             </div>
             <div className="flex justify-between ">
                 <button className="mr-14">
@@ -19,7 +19,7 @@ export const LoggedTopbar = () => {
                 <button className="mr-14">
                     About
                 </button>
-                <button className="mr-14">
+                <button onClick={DevClick} className="mr-14">
                     Developer
                 </button>
                 <div className="flex justify-end pr-6">
@@ -45,3 +45,6 @@ export function Avatar({ name, size = "small" }: { name: any , size?: "small" | 
 </div>
 }
 
+export function DevClick () {
+    return window.location.href = "https://github.com/Official-Krish";
+}

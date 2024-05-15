@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom"
+import { DevClick } from "./LoggedTopbar"
 
 export const Topbar = () => {
     return<div>
         <div className="flex justify-around pt-6 text-white lc	">
             <div className="cursor-pointer">
-                Leet Code
+                NeonCode
             </div>
             <div className="flex justify-between ">
                 <button className="mr-14">
@@ -13,10 +14,16 @@ export const Topbar = () => {
                 <button className="mr-14">
                     Explore
                 </button>
+
+
+                <Link to="/Leaderboard">
                 <button className="mr-14">
-                    Product
+                    Leaderboard
                 </button>
-                <button className="mr-14">
+                </Link>
+                
+                
+                <button onClick={DevClick}className="mr-14">
                     Developer
                 </button>
                 <button>
