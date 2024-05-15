@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { Footer } from "./Footer"
 import { LoggedTopbar } from "./LoggedTopbar"
 
@@ -17,7 +18,10 @@ export const LoggedLandingPage = () =>{
                 </div>
             </div>
             <div className="flex justify-center pt-12 pb-20">
-            <button type="button" className="text-white bg-cyan-700 hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-700 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-cyan-700 dark:hover:bg-cyan-800 dark:focus:ring-cyan-700">Explore</button>
+              <Link to ="/problemlist">
+              <button type="button" className="text-white bg-cyan-700 hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-700 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-cyan-700 dark:hover:bg-cyan-800 dark:focus:ring-cyan-700">Explore</button>
+              </Link>
+            
             </div> 
         </div>
         <div>
