@@ -18,7 +18,7 @@ const problemList = [
 ];
 const leaderboard = [
   { id: "1", image: "Two Sum", name : "Krish", points : 5 },
-  { id: "2", image: "Two Sum", name : "Rakshita", points : 4, },
+  { id: "2", image: "Two Sum", name : "Abhinav", points : 4, },
   { id: "3", image: "Two Sum", name : "Priyansh", points : 3, },
   { id: "4", image: "Two Sum", name : "Aseem", points : 2  }
 ];

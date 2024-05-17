@@ -9,7 +9,7 @@ export const Tag = ({ children }: {children: any}) => {
   export const TagContainer = (tags: any) => {
     console.log("TAGS", tags);
     return (
-      <div className="flex gap-2">
+      <div className="flex gap-2 ml-20">
         {tags.tags.map((tag: any) => (
           <Tag>{tag}</Tag>
         ))}
