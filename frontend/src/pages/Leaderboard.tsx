@@ -9,28 +9,30 @@ export const Leaderboard = ({
       <div className="bg-gray-800 pb-8">
     <Topbar/>
     </div>
-      <div className="my-8">
-        <div className="flex justify-center">
-        <h1 className="text-bold text-4xl pb-5">Leaderboards</h1>
-        </div>
-        
-
-        <div className="shadow-md my-4 mih-h-[50vh] px-4 py-4">
-          <div className="flex my-8 pl-20">
-            <div className="w-1/3">Id</div>
-            <div className="w-1/3">Name</div>
-            <div className="w-1/3">Points</div>
-          </div>
-          {leaderboard.map((item) => (
-            <div className="flex my-4 text-lg bg-white shadow-sm py-4 px-2 pl-20">
-              <div className="w-1/3">{item.id}</div>
-              <div className="w-1/3">{item.name}</div>
-              <div className="w-1/3">{item.points}</div>
-            </div>
-          ))}
-          <div className="flex"></div>
-        </div>
+      <div className="max-w-4xl mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Leaderboard - Mars of the Moon</h1>
+      <div className="overflow-x-auto">
+        <table className="min-w-full bg-white shadow-md rounded-lg">
+          <thead>
+            <tr className="bg-gray-100 text-left">
+              <th className="py-2 px-4">Id</th>
+              <th className="py-2 px-4">Participant name</th>
+              <th className="py-2 px-4">Points</th>
+            </tr>
+          </thead>
+          <tbody>
+            {leaderboard.map(items => (
+              <tr key={items.id} className="border-t">
+                <td className="py-2 px-4">{items.id}</td>
+                <td className="py-2 px-4">{items.name}</td>
+                <td className="py-2 px-4">{items.points}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
+      <button className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-lg">Add achievement</button>
+    </div>
       </div>
     );
   };
